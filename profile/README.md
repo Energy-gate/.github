@@ -128,75 +128,7 @@ EventBridge가 5분마다 0·15·30분 전 모두 재실 0명인 운전 호실�
 
 **4-1. 웹은 CloudFront·S3, API는 API Gateway·Lambda, AI는 Bedrock, 도면 변환은 Step Functions·SageMaker로 처리합니다.**
 
-```mermaid
-flowchart LR
-  user(["운영자, 판매사 관리자"])
-
-  subgraph web["웹"]
-    cf["CloudFront"] --> s3w["S3 정적 웹"]
-    cog["Cognito 로그인"]
-  end
-
-  subgraph api["API"]
-    http["API Gateway HTTP API"]
-    ws["API Gateway WebSocket API"]
-  end
-
-  subgraph backend["백엔드 Lambda(Python 3.12)"]
-    lapi["api: 조회, 관리, 스케줄, 추천"]
-    lq["query, ws: AI 질의"]
-    lops["auto-operator: 5분 자동 운영"]
-    lsim["simulator: 1분 상태 계산"]
-    lwea["weather: 30분 기상 수집"]
-  end
-
-  subgraph data["데이터"]
-    ddb[("DynamoDB")]
-    s3p[("S3 도면, 트윈")]
-  end
-
-  subgraph ai["AI 서비스"]
-    br["Bedrock Claude Sonnet 5.5"]
-    kb["Bedrock Knowledge Bases, S3 Vectors"]
-    jev["JEV 판단 API(외부)"]
-  end
-
-  subgraph ingest["도면 변환"]
-    sf["Step Functions"] --> parser["Lambda 컨테이너 파서"]
-    sf --> sm["SageMaker Serverless 실내기 인식"]
-  end
-
-  subgraph train["모델 학습(오프라인)"]
-    proc["SageMaker Processing 합성"] --> trn["SageMaker Training YOLO11s"] --> reg["Model Registry"]
-  end
-
-  eb["EventBridge"]
-  kma["기상청 초단기실황(외부)"]
-  ep["EnergyPlus 컨테이너 Lambda"]
-
-  user --> cf
-  user --> cog
-  cf --> http
-  cf --> ws
-  cf --> ep
-  http --> lapi
-  ws --> lq
-  lq --> br
-  lq --> kb
-  lapi --> ddb
-  lapi --> s3p
-  lapi --> sf
-  parser --> s3p
-  eb --> lops
-  eb --> lsim
-  eb --> lwea
-  lops --> jev
-  lops --> ddb
-  lsim --> ddb
-  lwea --> kma
-  lwea --> ddb
-  reg -.-> sm
-```
+![AWS 아키텍처](img/architecture.png)
 
 | 스택 | 구성 |
 |---|---|
