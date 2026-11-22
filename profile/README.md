@@ -64,7 +64,7 @@
 | <img src="img/d-twin-link.png" width="320" alt="3D 트윈 실내기와 옥상 실외기 연결"> | <img src="img/draft.png" width="200" alt="회의실 냉방 OFF 스케줄 초안"> | <img src="img/ops.png" width="200" alt="빈 방 판단 95% 제안 카드"> |
 | 운전 중 실내기 녹색, 옥상 실외기 계통 | 대상 회의실 3곳, 확인 후 저장 | JEV 판단 빈 방 확률 95% |
 
-## 3. 해결 방법: 문제 6개별 접근
+## 3. 해결 방법
 
 **3-1. 도면 형식이 건물마다 달라, 형식별 파서를 두고 결과를 공통 형식 `twin.building/v1` 1개로 맞췄습니다.**
 
