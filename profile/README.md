@@ -18,7 +18,7 @@
 > | AI 운영 도우미 평가 | 35/35 정답, 응답 중앙값 4.2초 | 평가 문항 35개 |
 > | 빈 방 판단(JEV) 냉방 14일 전력량 | 718.1kWh | 규칙 기반 982.3kWh 대비 -26.9% |
 
-![운영 대시보드](img/cover-dashboard.png)
+https://github.com/user-attachments/assets/5281b5d5-a623-408f-8f02-a4c8b997aa0b
 
 ## 1. 문제 개요
 
