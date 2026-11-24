@@ -4,7 +4,7 @@
 
 <h1 align="center">에게(에너지게이트)</h1>
 
-<p align="center">도면 기반 건물 운영 3D 디지털트윈<br>2026 AWS X PNU AI 마에스트로 해커톤, 과제 4(ES 클라우드)<br><a href="https://d2y0m857hv27mz.cloudfront.net">서비스 주소</a>(로그인과 기업 코드 필요)</p>
+<p align="center">도면 기반 건물 운영 3D 디지털트윈<br>2026 AWS X PNU AI 마에스트로 해커톤, 과제 4(ES 클라우드)<br></p>
 
 > **요약** (기준일 2026-11-22)
 >
